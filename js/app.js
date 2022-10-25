@@ -1,6 +1,8 @@
-const tienda = document.getElementById("tiendaProductos");
-const verCarrito = document.getElementById("verCarrito");
-const modalCarrito = document.getElementById("carritoModal");
+let tienda = document.getElementById("tiendaProductos");
+let verCarrito = document.getElementById("verCarrito");
+let modalCarrito = document.getElementById("carritoModal");
+let cantidadCarrito = document.getElementById("cantidadCarrito");
+
 
 let carrito = [];
 
@@ -32,7 +34,10 @@ productos.forEach((product) => {
             nombre: product.nombre,
             precio: product.precio
         });
+        contadorCarrito();
+        localSave();
     });
+
 });
 
 /* Creo modal para ver el carrito */
@@ -83,3 +88,16 @@ verCarrito.addEventListener("click", () => {
     `;
     modalCarrito.append(carritoFooter);
 })
+
+/* Creo función para mostrar el contador de productos del carrito */
+
+const contadorCarrito = () => {
+    cantidadCarrito.style.display = "block";
+    cantidadCarrito.innerText = carrito.length;
+};
+
+/* localstorage */
+
+const localSave = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
