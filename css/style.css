@@ -351,6 +351,12 @@ img {
     width: 15%;
     border-radius: 20px;
 }
+.carritoLista button {
+    font-size: 2rem;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
 
 .carritoFooter {
     display: flex;
