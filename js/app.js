@@ -1,10 +1,8 @@
-let tienda = document.getElementById("tiendaProductos");
-let verCarrito = document.getElementById("verCarrito");
-let modalCarrito = document.getElementById("carritoModal");
-let cantidadCarrito = document.getElementById("cantidadCarrito");
+const tiendaProductos = document.getElementById("tiendaProductos");
+const verCarrito = document.getElementById("verCarrito");
+const cuerpoCarrito = document.getElementById("carritoModal");
 
-
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = [];
 
 /* Recorro el array productos para agregar cada objeto a mi HTML */
 productos.forEach((product) => {
@@ -23,7 +21,7 @@ productos.forEach((product) => {
     content.append(comprar);
 
     content.className = "producto";
-    tiendaProductos.append(content)
+    tiendaProductos.append(content);
 
     /* Agrego función para agregar el producto al array carrito */
 
@@ -34,29 +32,6 @@ productos.forEach((product) => {
             nombre: product.nombre,
             precio: product.precio
         });
-        contadorCarrito();
-        localSave();
-        verCarrito();
     });
-
 });
-
-
-/* Creo función para mostrar el contador de productos del carrito */
-
-const contadorCarrito = () => {
-    cantidadCarrito.style.display = "block";
-
-    let carritoLength = carrito.length;
-
-    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
-
-    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
-};
-
-contadorCarrito();
-
-const localSave = () => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-}
 

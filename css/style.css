@@ -518,4 +518,71 @@ img {
         background-color: #ffddcc;
         color: #ffeeeeee;
     }
+
+    .login {
+        width: 40%;
+        background-color: #ffddcc;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-right: 1px solid #DD8755;
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+    }
+    .login-form h2 {
+        font-size: 2.5rem;
+        color: #331122;
+        margin-bottom: 3rem;
+    }
+    .login-form label {
+        margin: 1.6rem;
+        font-size: 2rem;
+        color: #331122;
+    }
+    .login-form input {
+        padding: .6rem;
+        background-color: transparent;
+        border: transparent;
+        border-bottom: 1px solid #DD8755;
+        border-left: 1px solid #DD8755;
+        outline: none;
+    }
+    .login-form input:focus{
+        background-color: #ffeeeeee;
+    }
+    .login-form button {
+        margin: 2rem 0;
+        padding: .8rem;
+        background-color: #DD8755;
+        border: 1px solid transparent;
+        font-size: 1.8rem;
+        color: #331122;
+        cursor: pointer;
+    }
+    .login-form button:hover{
+        background-color: #ffeeeeee;
+        border: 1px solid #DD8755;
+    }
+    .login-form p {
+        font-size: 1.7rem;
+        color: #331122;
+    }
+    .login-form a {
+        color: #DD8755;
+    }
+    .login-form a:hover{
+        color: #ffeeeeee;
+    }
+
+    .eliminarProducto {
+        cursor: pointer;
+        font-size: 2rem;
+    }
 }
+

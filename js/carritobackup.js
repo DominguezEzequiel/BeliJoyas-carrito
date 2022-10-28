@@ -1,13 +1,16 @@
-const abrirCarrito = () => {
-    cuerpoCarrito.innerHTML = '';
+/* Creo modal para ver el carrito */
 
-    cuerpoCarrito.style.display = 'flex';
-    const carritoHeader = document.createElement('div');
-    carritoHeader.className = 'carritoHeader';
+verCarrito.addEventListener("click", () => {
+
+    modalCarrito.innerHTML = ''
+
+    modalCarrito.style.display = "flex"
+    const carritoHeader = document.createElement("div");
+    carritoHeader.className = "carritoHeader";
     carritoHeader.innerHTML = `
     <h2 class="carrito-titulo">TUS COMPRAS</h2>
-    `;
-    cuerpoCarrito.append(carritoHeader);
+    `
+    modalCarrito.append(carritoHeader);
 
     /* Creo botón "X" para cerrar el carrito */
 
@@ -16,52 +19,51 @@ const abrirCarrito = () => {
     carritoHeader.append(cerrarCarrito);
 
     cerrarCarrito.addEventListener("click", () => {
-        cuerpoCarrito.style.display = 'none';
-    });
+        modalCarrito.style.display = "none"
+    })
 
     /* Creo el cuerpo del modal, recorriendo el array carrito */
 
     carrito.forEach((product) => {
-        let carritoBody = document.createElement('div');
+        let carritoBody = document.createElement("div")
         carritoBody.className = "carritoLista"
         carritoBody.innerHTML = `
         <img src="${product.img}">
         <p>${product.nombre}</p>
         <p>$${product.precio}</p>
-        <span class="eliminarProducto"> ❌ </span>
     `
+       
 
-        cuerpoCarrito.append(carritoBody);
+        let eliminar = document.createElement("button");
+        eliminar.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark"></i>`
+        eliminar.className = "eliminarProducto"
+        carritoBody.append(eliminar);
 
-        let eliminar = carritoBody.querySelector(".eliminarProducto");
-        eliminar.addEventListener('click', ()=> {
-            eliminarProducto(product.id);
-        });
+        eliminar.addEventListener("click", eliminarProducto);
+        
+        modalCarrito.append(carritoBody);
     });
 
-
-
     /* Creo el footer del modal con el metodo reduce para calcular el total */
-    const total = carrito.reduce((acc, e) => acc + e.precio, 0)
+    const total = carrito.reduce((acc, e) => acc + e.precio, 0);
+
     const carritoFooter = document.createElement("div")
     carritoFooter.className = "carritoFooter";
     carritoFooter.innerHTML = `
     <h2>PRECIO FINAL:</h2> 
     <h2> $${total}</h2>
     `;
-    cuerpoCarrito.append(carritoFooter);
-};
+    modalCarrito.append(carritoFooter);
+})
 
-verCarrito.addEventListener("click", abrirCarrito);
+/* Función eliminar producto */
 
-/* Función "Eliminar producto" */
-
-const eliminarProducto = (id) => {
-    const selecId = carrito.find((element) => element.id === id);
+const eliminarProducto = () => {
+    const selecId = carrito.find((element) => element.id);
 
     carrito = carrito.filter((carritoId) => {
         return carritoId !== selecId;
-    });
+    })
 
-    abrirCarrito();
+    verCarrito();
 }
