@@ -28,21 +28,46 @@ const abrirCarrito = () => {
         <img src="${product.img}">
         <p>${product.nombre}</p>
         <p>$${product.precio}</p>
-        <span class="eliminarProducto"> ❌ </span>
+        <span class="restar"> - </span>
+        <p>Cantidad: ${product.cantidad}</p>
+        <span class="sumar"> + </span>
+        <p>Total: ${product.cantidad * product.precio} $</p>
+        <span class="eliminarProducto"> X </span>
     `
 
         cuerpoCarrito.append(carritoBody);
 
+        let restar = carritoBody.querySelector(".restar");
+
+        restar.addEventListener('click', () => {
+            if (product.cantidad !== 1) {
+                product.cantidad--;
+            }
+            abrirCarrito();
+            localSave();
+        });
+
+        let sumar = carritoBody.querySelector(".sumar");
+
+        sumar.addEventListener('click', () => {
+            product.cantidad++;
+            contadorCarrito();
+            localSave();
+            abrirCarrito();
+        });
+
         let eliminar = carritoBody.querySelector(".eliminarProducto");
-        eliminar.addEventListener('click', ()=> {
+        eliminar.addEventListener('click', () => {
             eliminarProducto(product.id);
+            contadorCarrito();
+            localSave();
         });
     });
 
 
 
     /* Creo el footer del modal con el metodo reduce para calcular el total */
-    const total = carrito.reduce((acc, e) => acc + e.precio, 0)
+    const total = carrito.reduce((acc, e) => acc + e.precio * e.cantidad, 0)
     const carritoFooter = document.createElement("div")
     carritoFooter.className = "carritoFooter";
     carritoFooter.innerHTML = `
@@ -62,6 +87,19 @@ const eliminarProducto = (id) => {
     carrito = carrito.filter((carritoId) => {
         return carritoId !== selecId;
     });
-
+    contadorCarrito();
+    localSave();
     abrirCarrito();
-}
+};
+
+let contadorCarrito = () => {
+    cantidadCarrito.style.display = "block";
+
+    let carritoLength = carrito.length;
+
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+};
+contadorCarrito();
+

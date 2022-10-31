@@ -298,7 +298,7 @@ img {
 /* Modal carrito */
 
 .carritoModal {
-    width: 50%;
+    width: 65%;
     max-height: 75vh;
     background-color: #ffddcc;
     color: #331122;
@@ -307,8 +307,8 @@ img {
     align-items: center;
     position: fixed;
     overflow: auto;
-    top: 10vh;
-    right: 4rem;
+    top: 15vh;
+    right: 20%;
     border: 1px solid #DD8755;
 }
 
@@ -318,6 +318,8 @@ img {
 .carritoModal p {
     font-size: 2.1rem;
 }
+
+
 
 
 .carritoModal::-webkit-scrollbar {
@@ -356,6 +358,19 @@ img {
     background-color: transparent;
     border: transparent;
     cursor: pointer;
+}
+
+.carritoLista span {
+    border: 1px solid #fdd7c4;
+    font-size: 1.6rem;
+    padding: .6rem .8rem;
+    color: #ad5827;
+    background-color: #fdd7c4;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgb(255, 197, 197), -2px -2px 3px #fcd3be;
+}
+.carritoLista span:active {
+    background-color:  #fdc4a7;
 }
 
 .carritoFooter {
