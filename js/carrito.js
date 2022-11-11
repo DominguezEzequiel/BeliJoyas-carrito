@@ -74,10 +74,39 @@ const abrirCarrito = () => {
     <h2>PRECIO FINAL:</h2> 
     <h2> $${total}</h2>
     `;
+    
     cuerpoCarrito.append(carritoFooter);
+
+    const btnVaciar = document.createElement('button');
+    btnVaciar.className = "vaciarCarrito";
+    btnVaciar.innerText = 'Vaciar carrito';
+
+    carritoFooter.append(btnVaciar)
+
+    btnVaciar.addEventListener('click', ()=>{
+        limpiarCarrito(localStorage);
+    });
+
+    const finalizarCompra = document.createElement('button');
+    finalizarCompra.className = "finalizarCompra";
+    finalizarCompra.innerText = 'Finalizar Compra';
+
+    carritoFooter.append(finalizarCompra);
+
+    finalizarCompra.addEventListener('click', ()=>{
+        limpiarCarrito(localStorage);
+        swal({
+            text: "¡Compra realizada con exito!",
+            icon: "success",
+            button: "Aww yiss!",
+          });
+    })
+   
 };
 
+
 verCarrito.addEventListener("click", abrirCarrito);
+
 
 /* Función "Eliminar producto" */
 
@@ -101,5 +130,15 @@ let contadorCarrito = () => {
 
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 };
+
+function limpiarCarrito(storage) {
+    storage.clear();
+    carrito.length = 0;
+    abrirCarrito();
+    contadorCarrito();
+}
+
 contadorCarrito();
+
+
 

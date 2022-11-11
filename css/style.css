@@ -315,6 +315,7 @@ img {
 .carritoModal h2 {
     font-size: 2.3rem;
 }
+
 .carritoModal p {
     font-size: 2.1rem;
 }
@@ -335,12 +336,14 @@ img {
     align-items: center;
     border-bottom: 1px solid #DD8755;
 }
+
 .carritoHeader button {
     border: transparent;
     background-color: #ffddcc;
     cursor: pointer;
     font-size: 2.8rem;
 }
+
 .carritoLista {
     display: flex;
     justify-content: space-between;
@@ -349,10 +352,12 @@ img {
     padding: .5rem;
     background-color: #ffeeeeee;
 }
+
 .carritoLista img {
     width: 15%;
     border-radius: 20px;
 }
+
 .carritoLista button {
     font-size: 2rem;
     background-color: transparent;
@@ -369,8 +374,9 @@ img {
     cursor: pointer;
     box-shadow: 3px 3px 3px rgb(255, 197, 197), -2px -2px 3px #fcd3be;
 }
+
 .carritoLista span:active {
-    background-color:  #fdc4a7;
+    background-color: #fdc4a7;
 }
 
 .carritoFooter {
@@ -379,6 +385,23 @@ img {
     width: 100%;
     min-height: 5rem;
     align-items: center;
+}
+.carritoFooter h2 {
+    width: 100%;
+}
+
+.vaciarCarrito, .finalizarCompra {
+    width: 90%;
+    padding: 1.3rem;
+    font-size: 1.4rem;
+    border-radius: 15px;
+    background-color: #DD8755;
+    border: 1px solid transparent;
+    margin: .5rem;
+}
+.vaciarCarrito:hover, .finalizarCompra:hover {
+    background-color: #fcd3be;
+    border: 1px solid #DD8755;
 }
 
 .cantidadCarrito {
@@ -392,6 +415,7 @@ img {
     position: absolute;
     display: none;
 }
+
 /* Logo wsp */
 .wsp {
     position: fixed;
@@ -504,13 +528,14 @@ img {
 
     .tienda__productos {
         padding: 2rem;
-        grid-template-columns:  1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 2rem;
     }
 
     .comprarBtn {
         cursor: pointer;
     }
+
     .comprarBtn:hover {
         background-color: #fff0f0;
         color: #DD8755;
@@ -519,9 +544,22 @@ img {
 
     .footer {
         grid-template-rows: auto;
-        grid-template-areas: "nav pagos cont"
-            "nav pagos redes"
-            "copy copy copy";
+        grid-template-areas:
+            "nav redes"
+            "cont pagos"
+            "copy copy";
+        justify-items: center
+    }
+
+    .footer__pagos {
+        width: 30%;
+    }
+
+    .footer__contacto {
+        width: 48%;
+    }
+    .copy {
+        width: 100%;
     }
 
     .footer__li a {
@@ -544,22 +582,26 @@ img {
         align-items: center;
         border-right: 1px solid #DD8755;
     }
+
     .login-form {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
     }
+
     .login-form h2 {
         font-size: 2.5rem;
         color: #331122;
         margin-bottom: 3rem;
     }
+
     .login-form label {
         margin: 1.6rem;
         font-size: 2rem;
         color: #331122;
     }
+
     .login-form input {
         padding: .6rem;
         background-color: transparent;
@@ -568,9 +610,11 @@ img {
         border-left: 1px solid #DD8755;
         outline: none;
     }
-    .login-form input:focus{
+
+    .login-form input:focus {
         background-color: #ffeeeeee;
     }
+
     .login-form button {
         margin: 2rem 0;
         padding: .8rem;
@@ -580,18 +624,22 @@ img {
         color: #331122;
         cursor: pointer;
     }
-    .login-form button:hover{
+
+    .login-form button:hover {
         background-color: #ffeeeeee;
         border: 1px solid #DD8755;
     }
+
     .login-form p {
         font-size: 1.7rem;
         color: #331122;
     }
+
     .login-form a {
         color: #DD8755;
     }
-    .login-form a:hover{
+
+    .login-form a:hover {
         color: #ffeeeeee;
     }
 
@@ -600,4 +648,3 @@ img {
         font-size: 2rem;
     }
 }
-

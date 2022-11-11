@@ -6,6 +6,9 @@ const cantidadCarrito = document.getElementById("cantidadCarrito");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 /* Recorro el array productos para agregar cada objeto a mi HTML */
+
+   
+
 productos.forEach((product) => {
     let content = document.createElement("div");
     content.innerHTML = `
@@ -56,3 +59,4 @@ productos.forEach((product) => {
 const localSave = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+contadorCarrito();
